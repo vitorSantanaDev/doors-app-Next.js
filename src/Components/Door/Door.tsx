@@ -3,16 +3,18 @@ import DoorModel from "../../model/door";
 import { AreaDoor, DoorElement, FloorDiv, FrameDoor } from "./styled";
 
 interface DoorProps {
-  door: DoorModel
+  value: DoorModel
+  onChange: (newDoor: DoorModel) => void
 }
 
 export default function Door(props: DoorProps) {
 
-  const { door } = props
+  const door  = props.value
   const selectedDoor = door.selected ? "selected" : ''
+  const toggleSelection = (event) => props.onChange(door.toggleSelection())
 
   return (
-    <AreaDoor>
+    <AreaDoor onClick={toggleSelection}>
       <FrameDoor className={`${"frame"} ${selectedDoor}`}>
         <DoorElement>
           <div className="number">{door.number}</div>
