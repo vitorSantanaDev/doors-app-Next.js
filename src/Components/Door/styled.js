@@ -8,21 +8,6 @@ export const AreaDoor = styled.div`
   flex-direction: column;
   margin: 8px;
   position: relative;
-
-  .frame {
-    display: flex;
-    flex-grow: 1;
-    border-left: 5px solid brown;
-    border-top: 5px solid brown;
-    border-right: 5px solid brown;
-    width: 90%;
-
-    .selected {
-      border-left: 5px solid yellow !important;
-      border-top: 5px solid yellow !important;
-      border-right: 5px solid yellow !important ;
-    }
-  }
 `;
 
 export const DoorElement = styled.div`
@@ -47,7 +32,28 @@ export const DoorElement = styled.div`
   }
 `;
 
-export const FrameDoor = styled.div``;
+export const FrameDoor = styled.div`
+  display: flex;
+  flex-grow: 1;
+  border-left: 5px solid brown;
+  border-top: 5px solid brown;
+  border-right: 5px solid brown;
+  width: 90%;
+
+  &.selected {
+    border-left: 5px solid yellow;
+    border-top: 5px solid yellow;
+    border-right: 5px solid yellow;
+
+    .number {
+      color: yellow;
+    }
+
+    .doorknob {
+      background-color: yellow;
+    }
+  }
+`;
 
 export const FloorDiv = styled.div`
   height: 10px;

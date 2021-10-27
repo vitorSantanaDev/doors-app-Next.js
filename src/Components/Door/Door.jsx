@@ -1,14 +1,16 @@
 import { AreaDoor, DoorElement, FloorDiv, FrameDoor } from "./styled";
 
 export default function Door(props) {
+
+  const selectedDoor = props.selected ? "selected" : ''
   return (
     <AreaDoor>
-      <div className="frame selected">
+      <FrameDoor className={`${"frame"} ${selectedDoor}`}>
         <DoorElement>
           <div className="number">3</div>
           <div className="doorknob"></div>
         </DoorElement>
-      </div>
+      </FrameDoor>
       <FloorDiv></FloorDiv>
     </AreaDoor>
   );
