@@ -38,6 +38,7 @@ export const FrameDoor = styled.div`
   border-left: 5px solid brown;
   border-top: 5px solid brown;
   border-right: 5px solid brown;
+  background-color: #0005;
   width: 90%;
 
   &.selected {
