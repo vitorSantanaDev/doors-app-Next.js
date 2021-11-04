@@ -34,6 +34,7 @@ export const DoorElement = styled.div`
 
 export const FrameDoor = styled.div`
   display: flex;
+  flex-direction: column-reverse;
   flex-grow: 1;
   border-left: 5px solid brown;
   border-top: 5px solid brown;
