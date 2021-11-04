@@ -4,7 +4,12 @@ export default class DoorModel {
   #selected: boolean;
   #doorOpen: boolean;
 
-  constructor(number: number, containsGift = false, selected = false, doorOpen) {
+  constructor(
+    number: number,
+    containsGift = false,
+    selected = false,
+    doorOpen = false
+  ) {
     this.#number = number;
     this.#containsGift = containsGift;
     this.#selected = selected;
@@ -20,26 +25,35 @@ export default class DoorModel {
   }
 
   get selected() {
-    return this.#selected
+    return this.#selected;
   }
 
   get doorOpen() {
-    return this.#doorOpen
+    return this.#doorOpen;
   }
 
   deselect() {
-    const selected = false
-    return new DoorModel(this.number, this.containsGift, selected, this.doorOpen)
+    const selected = false;
+    return new DoorModel(
+      this.number,
+      this.containsGift,
+      selected,
+      this.doorOpen
+    );
   }
 
   toggleSelection() {
-    const selected = !this.selected
-    return new DoorModel(this.number, this.containsGift, selected, this.doorOpen)
+    const selected = !this.selected;
+    return new DoorModel(
+      this.number,
+      this.containsGift,
+      selected,
+      this.doorOpen
+    );
   }
 
   open() {
     const open = true;
-    return new DoorModel(this.number, this.containsGift, this.selected, open)
+    return new DoorModel(this.number, this.containsGift, this.selected, open);
   }
-
 }
