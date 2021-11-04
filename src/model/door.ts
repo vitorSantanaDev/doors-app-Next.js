@@ -32,6 +32,10 @@ export default class DoorModel {
     return this.#doorOpen;
   }
 
+  get doorCloser() {
+    return !this.doorOpen;
+  }
+
   deselect() {
     const selected = false;
     return new DoorModel(
