@@ -1,6 +1,7 @@
 import { Interface } from "readline";
 import DoorModel from "../../model/door";
 import { AreaDoor, DoorElement, FloorDiv, FrameDoor } from "./styled";
+import Gift from "../Gift/Gift";
 
 interface DoorProps {
   value: DoorModel;
@@ -9,7 +10,7 @@ interface DoorProps {
 
 export default function Door(props: DoorProps) {
   const door = props.value;
-  const selectedDoor = door.selected && !door.doorOpen? "selected" : "";
+  const selectedDoor = door.selected && !door.doorOpen ? "selected" : "";
   const toggleSelection = (event) => props.onChange(door.toggleSelection());
 
   const open = (event) => {
@@ -29,7 +30,7 @@ export default function Door(props: DoorProps) {
   return (
     <AreaDoor onClick={toggleSelection}>
       <FrameDoor className={`${"frame"} ${selectedDoor}`}>
-        {door.doorOpen ? false : renserDoor()}
+        {door.doorCloser ? renserDoor() : door.containsGift ? <Gift /> : false}
       </FrameDoor>
       <FloorDiv></FloorDiv>
     </AreaDoor>
