@@ -8,8 +8,16 @@ import { useRouter } from "next/router";
 export default function Game() {
   
   const router = useRouter()
-
   const [doors, setDoors] = useState([]);
+  const [valid, setValid] = useState(false);
+
+  useEffect(() => {
+    const doors = Number(router.query.doors)
+    const haveThis = Number(router.query.haveThis)
+    const doorsvalid = doors >= 3 && doors <= 100
+    const haveThisValid = haveThis >= 1 && haveThis <= doors
+    setValid(doorsvalid && haveThisValid)
+  }, [doors, router.query.doors, router.query.haveThis])
 
   useEffect(() => {
     const doors = Number(router.query.doors)
@@ -31,7 +39,9 @@ export default function Game() {
 
   return (
     <GameSection>
-      <div className="doors">{renderDoors()}</div>
+      <div className="doors">
+        {valid ? renderDoors() : <h1>Valores inválidos</h1>}
+        </div>
       <div className="buttons">
           <button><Link href="/">Back</Link></button>
       </div>
